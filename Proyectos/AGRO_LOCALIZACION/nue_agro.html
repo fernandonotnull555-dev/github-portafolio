@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang=”es”>
+<head>
+    <meta charset=”UTF-8”>
+    <meta name=”viewport” content=”width=device-width, initial-scale=1.0”>
+    <title>Registrar Agromercado</title>
+</head>
+<body>
+    <h1>Registrar Agromercado</h1>
+    <form action=guardar_agromercado.php method=”POST”>
+        <label for=”nombre”>Nombre:</label><br>
+        <input type=”text” id=”nombre” name=”nombre” required><br><br>
+
+        <label for=”descripcion”>Descripción:</label><br>
+        <textarea id=”descripcion” name=”descripcion” required></textarea><br><br>
+
+        <label for=”latitud”>Latitud:</label><br>
+        <input type=”text” id=”latitud” name=”latitud” required><br><br>
+
+        <label for=”longitud”>Longitud:</label><br>
+        <input type=”text” id=”longitud” name=”longitud” required><br><br>
+
+        <label for=”horario_inicio”>Horario de inicio:</label><br>
+        <input type=”time” id=”horario_inicio” name=”horario_inicio” required><br><br>
+
+        <label for=”horario_fin”>Horario de cierre:</label><br>
+        <input type=”time” id=”horario_fin” name=”horario_fin” required><br><br>
+
+        <label for=”dias_atencion”>Días de atención:</label><br>
+        <input type=”text” id=”dias_atencion” name=”dias_atencion” required><br><br>
+
+        <label for=”productos”>Productos disponibles:</label><br>
+        <textarea id=”productos” name=”productos” required></textarea><br><br>
+
+        <button type=”submit”>Guardar</button>
+    </form>
+</body>
+</html>
+```

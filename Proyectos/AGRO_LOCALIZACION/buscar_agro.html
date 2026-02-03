@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Lugar - Sistema de Agromercados</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    //esta es libreria java para  mapas webs interactivos
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #1b5e20;
+            --text-color: #333;
+            --background-color: #f1f8e9;
+            --card-background: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 2.5em;
+        }
+
+        .search-container {
+            background: var(--card-background);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+        }
+
+        button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
+        }
+
+        #map {
+            width: 100%;
+            height: 500px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .results-container {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .result-item {
+            background: var(--card-background);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .result-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .map-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .map-controls {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+
+        .coordinates-display {
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 0.9em;
+            text-align: center;
+        }
+
+        .custom-popup {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .custom-popup h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .custom-popup p {
+            margin: 5px 0;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            #map {
+                height: 300px;
+            }
+                 
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Buscar Ubicación en el Mapa</h1>
+        
+        <div class="search-container">
+            <form id="searchForm">
+                <div class="form-group">
+                    <label for="nombreLugar">Nombre del Lugar:</label>
+                    <input type="text" id="nombreLugar" name="nombreLugar" required 
+                           placeholder="Ingresa el nombre del lugar o dirección">
+                </div>
+                <button type="submit">Buscar en el Mapa</button>
+            </form>
+        </div>
+
+        <div class="loading" id="loading"></div>
+        <div class="results-container" id="results"></div>
+        
+        <div class="map-container">
+            <div id="map"></div>
+            <div class="map-controls">
+                <button type="button" onclick="obtenerCoordenadas()">Usar mi ubicación</button>
+            </div>
+            <div class="coordinates-display" id="coordinatesDisplay">
+                Haz clic en el mapa para seleccionar la ubicación
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        let map;
+        let marker;
+        let markers = [];
+
+        function initMap() {
+            // Coordenadas iniciales (Bogotá, Colombia)
+            const defaultLocation = [4.5709, -74.2973];
+
+            // Crear el mapa
+            map = L.map('map').setView(defaultLocation, 12);
+
+            // Agregar capa de OpenStreetMap
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            // Agregar evento de clic al mapa
+            map.on('click', function(e) {
+                actualizarCoordenadas(e.latlng);
+            });
+
+            // Escuchar el evento de envío del formulario
+            document.getElementById('searchForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const lugar = document.getElementById('nombreLugar').value;
+                buscarLugar(lugar);
+            });
+        }
+
+        function obtenerCoordenadas() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        const latLng = L.latLng(position.coords.latitude, position.coords.longitude);
+                        actualizarCoordenadas(latLng);
+                        map.setView(latLng, 15);
+                    },
+                    function(error) {
+                        mostrarError("Error al obtener la ubicación: " + error.message);
+                    }
+                );
+            } else {
+                mostrarError("La geolocalización no está soportada por este navegador.");
+            }
+        }
+
+        function buscarLugar(lugar) {
+            // Mostrar loading
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('results').innerHTML = '';
+
+            // Limpiar marcadores anteriores
+            clearMarkers();
+
+            // Realizar la búsqueda en la base de datos
+            fetch(`buscar_agro.php?nombre_agro=${encodeURIComponent(lugar)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.estado === 'error') {
+                        mostrarError(data.mensaje);
+                        return;
+                    }
+
+                    if (data.lugares && data.lugares.length > 0) {
+                        mostrarResultados(data.lugares);
+                    } else {
+                        // Si no hay resultados en la base de datos, intentar geocodificación
+                        buscarDireccion(lugar);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    mostrarError('Error al buscar la ubicación');
+                })
+                .finally(() => {
+                    document.getElementById('loading').style.display = 'none';
+                });
+        }
+
+        function buscarDireccion(direccion) {
+            if (direccion.trim() === '') return;
+
+            // Usar el servicio de geocodificación de OpenStreetMap
+            fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(direccion)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.length > 0) {
+                        const location = L.latLng(data[0].lat, data[0].lon);
+                        actualizarCoordenadas(location);
+                        map.setView(location, 15);
+                    } else {
+                        mostrarError("No se encontró la ubicación");
+                    }
+                })
+                .catch(error => {
+                    mostrarError("Error al buscar la dirección");
+                });
+        }
+
+        function actualizarCoordenadas(latLng) {
+            // Actualizar el marcador en el mapa
+            if (marker) {
+                marker.setLatLng(latLng);
+            } else {
+                marker = L.marker(latLng, {
+                    draggable: true
+                }).addTo(map);
+
+                // Agregar evento de arrastre al marcador
+                marker.on('dragend', function(event) {
+                    actualizarCoordenadas(event.target.getLatLng());
+                });
+            }
+
+            // Actualizar el display de coordenadas
+            document.getElementById('coordinatesDisplay').innerHTML = 
+                `Latitud: ${latLng.lat.toFixed(6)}<br>Longitud: ${latLng.lng.toFixed(6)}`;
+        }
+
+        function mostrarResultados(lugares) {
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = '';
+
+            lugares.forEach(lugar => {
+                const resultItem = document.createElement('div');
+                resultItem.className = 'result-item';
+                resultItem.innerHTML = `
+                    <h3>${lugar.nombre}</h3>
+                    <p>Latitud: ${lugar.latitud}</p>
+                    <p>Longitud: ${lugar.longitud}</p>
+                `;
+                resultItem.addEventListener('click', () => {
+                    const location = L.latLng(lugar.latitud, lugar.longitud);
+                    actualizarCoordenadas(location);
+                    map.setView(location, 15);
+                });
+                resultsContainer.appendChild(resultItem);
+
+                // Agregar marcador al mapa
+                const marker = L.marker([lugar.latitud, lugar.longitud]).addTo(map);
+                markers.push(marker);
+
+                // Agregar popup con información
+                marker.bindPopup(`
+                    <div class="custom-popup">
+                        <h3>${lugar.nombre}</h3>
+                        <p>Latitud: ${lugar.latitud}</p>
+                        <p>Longitud: ${lugar.longitud}</p>
+                    </div>
+                `);
+            });
+
+            // Ajustar la vista del mapa para mostrar todos los marcadores
+            if (lugares.length > 0) {
+                const bounds = L.latLngBounds(lugares.map(lugar => [lugar.latitud, lugar.longitud]));
+                map.fitBounds(bounds, { padding: [50, 50] });
+            }
+        }
+
+        function clearMarkers() {
+            markers.forEach(marker => marker.remove());
+            markers = [];
+        }
+
+        function mostrarError(mensaje) {
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = `<div class="result-item" style="color: red;">${mensaje}</div>`;
+        }
+
+        // Inicializar el mapa cuando se carga la página
+        window.onload = initMap;
+    </script>
+</body>
+</html>

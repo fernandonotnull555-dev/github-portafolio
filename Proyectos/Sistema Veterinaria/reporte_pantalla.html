@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> <!-- Establece la codificación de caracteres a UTF-8 para soportar caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la página sea responsiva -->
+    <title>Menú de Selección</title> <!-- Título de la pestaña del navegador -->
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Tipo de fuente para el cuerpo */
+            background-image: url('ruta/a/tu/imagen.jpg'); /* Ruta a tu imagen */
+            background-size: cover; /* Hacer que la imagen cubra todo el fondo */
+            background-position: center; /* Centrar la imagen */
+            margin: 0; /* Elimina el margen por defecto */
+            display: flex; /* Utiliza Flexbox para organizar el contenido */
+            flex-direction: column; /* Organiza los elementos en columna */
+            align-items: center; /* Centra horizontalmente el contenido */
+            justify-content: flex-start; /* Alínea el contenido al inicio del contenedor */
+            height: 100vh; /* Altura total de la ventana del navegador */
+        }
+
+        header {
+            background-color: rgba(76, 175, 80, 0.8); /* Fondo verde con opacidad */
+            padding: 15px 20px; /* Espaciado interno */
+            text-align: center; /* Centrar texto */
+            color: white; /* Texto en blanco */
+            width: 100%; /* Ancho completo del encabezado */
+        }
+
+        nav {
+            display: flex; /* Usar flexbox para el menú */
+            justify-content: center; /* Centrar horizontalmente */
+            background-color: rgba(51, 51, 51, 0.8); /* Fondo oscuro con opacidad para el menú */
+            padding: 10px; /* Espaciado interno */
+            width: 100%; /* Ancho completo del menú */
+        }
+
+        nav a {
+            color: white; /* Texto en blanco */
+            padding: 15px 20px; /* Espaciado interno */
+            text-decoration: none; /* Quitar subrayado de los enlaces */
+            text-align: center; /* Centrar texto dentro del enlace */
+            transition: background-color 0.3s; /* Transición suave de color */
+        }
+
+        nav a:hover {
+            background-color: #021bfa; /* Cambiar color al pasar el mouse */
+        }
+
+        h1 {
+            color: #0e0f0e; /* Color verde oscuro para el título */
+            margin: 20px 0; /* Espacio debajo del título */
+            text-align: center; /* Alinea el texto del título al centro */
+        }
+
+        .menu {
+            background: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad para el menú de búsqueda */
+            padding: 20px; /* Espaciado interno del menú */
+            border-radius: 8px; /* Bordes redondeados para el menú */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+            width: 300px; /* Ancho fijo del menú */
+            text-align: center; /* Alinea el texto al centro */
+        }
+
+        .menu button {
+            margin: 10px 0; /* Espacio vertical entre botones */
+            padding: 10px; /* Espaciado interno de los botones */
+            border: none; /* Sin borde */
+            border-radius: 4px; /* Bordes redondeados */
+            cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+            background-color: #4CAF50; /* Color de fondo del botón */
+            color: white; /* Color del texto del botón */
+            transition: background-color 0.3s; /* Transición suave al cambiar el fondo */
+            width: 100%; /* Botón de ancho completo */
+        }
+
+        .menu button:hover {
+            background-color: #388E3C; /* Color de fondo al pasar el mouse sobre el botón */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido/a a nuestra Veterinaria</h1> <!-- Título principal -->
+    </header>
+
+    <nav>
+        <a href="insertar_usuario.html">Crear Usuario</a>
+        <a href="menu_insertarbd.html">Insertar Registros</a>
+        <a href="modificar_bd.html">Modificar en la Base de Datos</a>
+        <a href="menu_buscar.html">Buscar Usuarios en la Base de Datos</a>
+        <a href="menu_eliminar.html">Eliminar Registros de la Base de Datos</a>
+        <a href="menu_reportes.html">Generar Reportes</a>
+        <a href="logout.php">Cerrar Sesión</a>
+    </nav>
+
+    <h1>Reportes en pantalla</h1> <!-- Título principal del menú -->
+
+    <div class="menu"> <!-- Contenedor del menú -->
+        <button onclick="window.location.href='rep_usu_pant.html'">Reporte Usuarios</button> 
+        <button onclick="window.location.href='rep_prod_pant.html'">Reporte Productos</button> 
+        <button onclick="window.location.href='rep_cita.html'">Reporte Cita</button> 
+        <button onclick="window.location.href='rep_pac.html'">Reporte Pacientes</button> 
+        <button onclick="window.location.href='rep_prop_pant.html'">Reporte Propietarios</button> 
+
+        <button onclick="window.location.href='menu_reportes.html'">Regresar al menú</button> 
+    </div>
+
+</body>
+</html>

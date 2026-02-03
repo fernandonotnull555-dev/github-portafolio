@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Búsqueda de Citas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f9e6;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .search-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: left;
+        }
+
+        label {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #4CAF50;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #388E3C;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #388E3C;
+        }
+
+        .regresar {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .regresar:hover {
+            background-color: #388E3C;
+        }
+    </style>
+</head>
+<body>
+    <h1>Búsqueda de Citas</h1>
+
+    <div class="search-container">
+        <form action="buscar_cita.php" method="POST">
+          
+            <label for="id_cita">ID de la cita:</label>
+            <input type="text" id="id_cita" name="id_cita" placeholder="ID (opcional)">
+            
+            <label for="id_paciente">ID del paciente:</label>
+            <input type="text" id="id_paciente" name="id_paciente" placeholder="ID (opcional)">
+           
+            <!-- Opcional: Dejar solo los campos que usarás en tu búsqueda -->
+            <!-- Si aún no vas a usar fecha y motivo en PHP, puedes eliminarlos o agregarlos al backend -->
+            <label for="fecha_cita">Fecha de la cita:</label>
+            <input type="text" id="fecha_cita" name="fecha_cita" placeholder="Fecha (opcional)">
+            
+            <label for="motivo">Motivo:</label>
+            <input type="text" id="motivo" name="motivo" placeholder="Motivo de la cita (opcional)">
+            
+            <input type="submit" value="Buscar">
+        </form>
+    </div>
+
+    <button class="regresar" onclick="window.location.href='menu_buscar.html'">Regresar</button>
+</body>
+</html>

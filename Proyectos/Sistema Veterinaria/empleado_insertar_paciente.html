@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> <!-- Establece la codificación de caracteres a UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la página sea responsiva -->
+    <title>Insertar Paciente</title> <!-- Título de la pestaña del navegador -->
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Tipo de fuente para el cuerpo */
+            background-color: #e6f9e6; /* Color de fondo verde claro */
+            display: flex; /* Utiliza Flexbox para organizar el contenido */
+            flex-direction: column; /* Organiza los elementos en columna */
+            align-items: center; /* Centra horizontalmente el contenido */
+            height: 100vh; /* Altura total de la ventana del navegador */
+            margin: 0; /* Elimina el margen por defecto */
+        }
+
+        header {
+            background-color: rgba(92, 175, 76, 0.8); /* Color de fondo del encabezado */
+            padding: 15px 20px; /* Espaciado del encabezado */
+            text-align: center; /* Centra el texto en el encabezado */
+            color: black; /* Color negro para el texto del encabezado */
+            width: 100%; /* Ancho completo del encabezado */
+        }
+
+        nav {
+            display: flex; /* Utiliza Flexbox para organizar los enlaces del menú */
+            justify-content: center; /* Centra horizontalmente los enlaces */
+            background-color: rgba(51, 51, 51, 0.8); /* Color de fondo del menú */
+            padding: 10px; /* Espaciado del menú */
+            width: 100%; /* Ancho completo del menú */
+        }
+
+        nav a {
+            color: white; /* Color del texto de los enlaces */
+            padding: 15px 20px; /* Espaciado interno de los enlaces */
+            text-decoration: none; /* Sin subrayado en los enlaces */
+            text-align: center; /* Centra el texto de los enlaces */
+            transition: background-color 0.3s; /* Transición suave al cambiar el fondo */
+        }
+
+        nav a:hover {
+            background-color: #021bfa; /* Color de fondo al pasar el mouse sobre el enlace */
+        }
+
+        h1 {
+            color: black; /* Color negro para el título */
+            margin: 20px 0; /* Espacio arriba y abajo del título */
+        }
+
+        .form-container {
+            background: white; /* Fondo blanco para el contenedor del formulario */
+            padding: 20px; /* Espaciado interno del contenedor */
+            border-radius: 8px; /* Bordes redondeados para el contenedor */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+            width: 300px; /* Ancho fijo del contenedor */
+        }
+
+        label {
+            margin-bottom: 5px; /* Espacio debajo de la etiqueta */
+            color: #333; /* Color del texto de las etiquetas */
+        }
+
+        input[type="text"], input[type="number"], select {
+            width: calc(100% - 20px); /* Ancho completo del campo, menos el padding */
+            padding: 10px; /* Espaciado interno del campo */
+            margin-bottom: 15px; /* Espacio debajo de cada campo */
+            border: 1px solid #4CAF50; /* Borde verde oscuro */
+            border-radius: 4px; /* Bordes redondeados */
+        }
+
+        input[type="submit"] {
+            width: 100%; /* Ancho completo del botón */
+            padding: 10px; /* Espaciado interno del botón */
+            border: none; /* Sin borde */
+            border-radius: 4px; /* Bordes redondeados */
+            cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+            background-color: #4CAF50; /* Color de fondo del botón */
+            color: white; /* Color del texto del botón */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #388E3C; /* Color de fondo al pasar el mouse sobre el botón */
+        }
+
+        .regresar {
+            margin-top: 15px; /* Espacio arriba del botón */
+            padding: 10px 20px; /* Espaciado interno */
+            border: none; /* Sin borde */
+            border-radius: 4px; /* Bordes redondeados */
+            cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+            background-color: #4CAF50; /* Color de fondo del botón */
+            color: white; /* Color del texto del botón */
+        }
+
+        .regresar:hover {
+            background-color: #388E3C; /* Color de fondo al pasar el mouse sobre el botón */
+        }
+    </style>
+</head>
+<body>
+    <!-- Menú de navegación -->
+    <header>
+        <h1>Bienvenido/a a nuestra Veterinaria</h1>
+    </header>
+
+    <nav>
+        <a href="empleado_buscar_cita.html">Buscar cita</a>
+        <a href="empleado_buscar_pacientes.html">Buscar Paciente</a>
+        <a href="empleado_buscar_propietarios.html">Buscar Propietarios</a>
+        <a href="empleado_buscar_productos.html">Buscar Productos</a>
+        <a href="empleado_insertar_cita.html">Insertar citas</a>
+        <a href="empleado_insertar_paciente.html">Insertar Pacientes</a>
+        <a href="empleado_insertar_propietarios.html">Insertar propietarios</a>
+        <a href="empleado_eliminar_cita.html">Eliminar citas</a>
+        <a href="logout.php">Cerrar Sesión</a>
+    </nav>
+
+    <h1>Insertar Paciente</h1>
+    <div class="form-container">
+        <form action="empleado_insertar_paciente.php" method="POST"> <!-- Formulario que envía datos al archivo insertar_paciente.php -->
+            <label for="id_prop">ID del Propietario:</label>
+            <input type="number" id="id_prop" name="id_prop" required>
+
+            <label for="nombre">Nombre del Paciente:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="especie">Especie:</label>
+            <input type="text" id="especie" name="especie" required>
+
+            <label for="sexo">Sexo:</label>
+            <select id="sexo" name="sexo" required>
+                <option value="Macho">Macho</option>
+                <option value="Hembra">Hembra</option>
+            </select>
+
+            <label for="peso">Peso:</label>
+            <input type="text" id="peso" name="peso" required>
+
+            <label for="edad">Edad:</label>
+            <input type="text" id="edad" name="edad" required>
+
+            <!-- Nuevo campo para el ID de la cita -->
+            <label for="id_cita">ID de la Cita:</label>
+            <input type="number" id="id_cita" name="id_cita" required>
+
+            <input type="submit" value="Insertar Paciente">
+        </form>
+    </div>
+
+    <button class="regresar" onclick="window.location.href='menu2.html'">Regresar</button> <!-- Botón para regresar al menú -->
+</body>
+</html>

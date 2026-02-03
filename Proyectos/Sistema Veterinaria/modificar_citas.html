@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> <!-- Establece la codificación de caracteres a UTF-8 para soportar caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la página sea responsiva -->
+    <title>Modificar Cita</title> <!-- Título de la pestaña del navegador -->
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Tipo de fuente para el cuerpo */
+            background-color: #e6f9e6; /* Color de fondo verde claro */
+            display: flex; /* Utiliza Flexbox para organizar el contenido */
+            flex-direction: column; /* Organiza los elementos en columna */
+            justify-content: center; /* Centra verticalmente el contenido */
+            align-items: center; /* Centra horizontalmente el contenido */
+            height: 100vh; /* Altura total de la ventana del navegador */
+            margin: 0; /* Elimina el margen por defecto */
+        }
+
+        h1 {
+            color: #4CAF50; /* Color verde oscuro para el título */
+            margin-bottom: 20px; /* Espacio debajo del título */
+        }
+
+        .form-container {
+            background: white; /* Fondo blanco para el formulario */
+            padding: 20px; /* Espaciado interno del formulario */
+            border-radius: 8px; /* Bordes redondeados para el formulario */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+            width: 300px; /* Ancho fijo del formulario */
+            text-align: center; /* Centra el texto dentro del formulario */
+        }
+
+        label {
+            margin-bottom: 5px; /* Espacio debajo de la etiqueta */
+            color: #333; /* Color del texto de las etiquetas */
+        }
+
+        input[type="datetime-local"], input[type="text"] {
+            width: calc(100% - 20px); /* Ancho completo del campo, menos el padding */
+            padding: 10px; /* Espaciado interno del campo */
+            margin-bottom: 15px; /* Espacio debajo de cada campo */
+            border: 1px solid #4CAF50; /* Borde verde oscuro */
+            border-radius: 4px; /* Bordes redondeados */
+        }
+
+        input[type="submit"] {
+            width: 100%; /* Ancho completo del botón */
+            padding: 10px; /* Espaciado interno del botón */
+            border: none; /* Sin borde */
+            border-radius: 4px; /* Bordes redondeados */
+            cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+            background-color: #4CAF50; /* Color de fondo del botón */
+            color: white; /* Color del texto del botón */
+            transition: background-color 0.3s; /* Transición suave al cambiar el fondo */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #388E3C; /* Color de fondo al pasar el mouse sobre el botón */
+        }
+
+        .menu-container {
+            margin-top: 20px; /* Espacio arriba del contenedor de botones */
+            width: 300px; /* Ancho fijo del contenedor */
+            text-align: center; /* Centra el texto dentro del contenedor */
+        }
+
+        .menu-container button {
+            padding: 10px; /* Espaciado interno del botón */
+            border: none; /* Sin borde */
+            border-radius: 4px; /* Bordes redondeados */
+            cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+            background-color: #4CAF50; /* Color de fondo del botón */
+            color: white; /* Color del texto del botón */
+            margin: 5px 0; /* Margen superior e inferior */
+            transition: background-color 0.3s; /* Transición suave al cambiar el fondo */
+            width: 100%; /* Ancho completo del botón */
+        }
+
+        .menu-container button:hover {
+            background-color: #388E3C; /* Color de fondo al pasar el mouse sobre el botón */
+        }
+    </style>
+</head>
+<body>
+    <h1>Modificar Cita</h1> <!-- Título principal de la página -->
+
+    <div class="form-container"> <!-- Contenedor para el formulario -->
+        <form action="modificar_citas.php" method="POST"> <!-- Cambia la acción al archivo correspondiente -->
+            <label for="id_cita">ID de Cita:</label>
+            <input type="text" id="id_cita" name="id_cita" required placeholder="Ingrese el ID de la cita">
+
+            <label for="id_paciente">ID de Paciente:</label>
+            <input type="text" id="id_paciente" name="id_paciente" required placeholder="Ingrese el ID del paciente">
+
+            <label for="fecha_cita">Fecha y Hora de Cita:</label>
+            <input type="datetime-local" id="fecha_cita" name="fecha_cita" required>
+
+            <label for="motivo">Motivo:</label>
+            <input type="text" id="motivo" name="motivo" required placeholder="Ingrese el motivo de la cita">
+
+            <input type="submit" value="Modificar Cita"> <!-- Botón para enviar el formulario -->
+        </form>
+    </div>
+
+    <div class="menu-container"> <!-- Contenedor para el botón de regresar -->
+        <button onclick="window.location.href='modificar_bd.html'">Regresar </button> <!-- Botón para regresar al menú -->
+    </div>
+</body>
+</html>

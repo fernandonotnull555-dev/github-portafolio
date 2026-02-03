@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Define la fuente de la página */
+            background-color: #e6f9e6; /* Color de fondo verde claro */
+            display: flex; /* Usar flexbox para centrar el contenido */
+            justify-content: center; /* Centrar horizontalmente */
+            align-items: center; /* Centrar verticalmente */
+            height: 100vh; /* Altura de la ventana del navegador */
+            margin: 0; /* Eliminar márgenes por defecto */
+        }
+        form {
+            background: white; /* Fondo blanco para el formulario */
+            padding: 20px; /* Espaciado interno del formulario */
+            border-radius: 8px; /* Bordes redondeados */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+            width: 400px; /* Ancho fijo del formulario */
+        }
+        h1 {
+            text-align: center; /* Centrar el título */
+            color: #4CAF50; /* Color verde oscuro para el título */
+        }
+        label {
+            display: block; /* Hacer que la etiqueta ocupe todo el ancho */
+            margin-bottom: 5px; /* Espacio debajo de la etiqueta */
+            color: #333; /* Color del texto de las etiquetas */
+        }
+        input[type="email"], input[type="password"] {
+            width: 100%; /* Ancho completo del campo */
+            padding: 10px; /* Espaciado interno del campo */
+            margin-bottom: 15px; /* Espacio debajo de cada campo */
+            border: 1px solid #4CAF50; /* Borde verde oscuro */
+            border-radius: 4px; /* Bordes redondeados */
+            transition: border-color 0.3s; /* Transición suave al cambiar el borde */
+        }
+        input[type="email"]:focus, input[type="password"]:focus {
+            border-color: #388E3C; /* Cambiar el color del borde al hacer foco */
+        }
+        input[type="submit"], input[type="reset"] {
+            width: 48%; /* Ancho de los botones */
+            padding: 10px; /* Espaciado interno de los botones */
+            border: none; /* Sin borde */
+            border-radius: 4px; /* Bordes redondeados */
+            cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+            transition: background-color 0.3s; /* Transición suave al cambiar el fondo */
+        }
+        input[type="submit"] {
+            background-color: #4CAF50; /* Color de fondo del botón de inicio de sesión */
+            color: white; /* Color del texto del botón */
+        }
+        input[type="reset"] {
+            background-color: #A5D6A7; /* Color de fondo del botón de reinicio */
+            color: white; /* Color del texto del botón */
+        }
+        input[type="submit"]:hover {
+            background-color: #388E3C; /* Color de fondo al pasar el mouse sobre el botón de inicio de sesión */
+        }
+        input[type="reset"]:hover {
+            background-color: #81C784; /* Color de fondo al pasar el mouse sobre el botón de reinicio */
+        }
+    </style>
+</head>
+<body>
+    <form action="verificar_login.php" method="post" autocomplete="on">
+        <h1>Iniciar Sesión</h1> <!-- Título del formulario -->
+        
+        <label for="correo">Correo:</label>
+        <!-- Etiqueta para el campo de correo electrónico -->
+        <input type="email" id="correo" name="correo" required>
+        <!-- Campo de entrada para el correo electrónico, requerido -->
+
+        <label for="contrasena">Contraseña:</label>
+        <!-- Etiqueta para el campo de contraseña -->
+        <input type="password" id="contrasena" name="contrasena" required>
+        <!-- Campo de entrada para la contraseña, requerido -->
+
+        <input type="submit" value="Iniciar Sesión">
+        <!-- Botón para enviar el formulario -->
+        <input type="reset" value="Limpiar">
+        <!-- Botón para reiniciar el formulario -->
+    </form>
+</body>
+</html>

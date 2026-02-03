@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> <!-- Establece la codificación de caracteres a UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la página sea responsiva -->
+    <title>Búsqueda de productos</title> <!-- Título de la pestaña del navegador -->
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Tipo de fuente para el cuerpo */
+            background-color: #e6f9e6; /* Color de fondo verde claro */
+            display: flex; /* Utiliza Flexbox para centrar el contenido */
+            flex-direction: column; /* Organiza los elementos en columna */
+            justify-content: center; /* Centra verticalmente el contenido */
+            align-items: center; /* Centra horizontalmente el contenido */
+            height: 100vh; /* Altura total de la ventana del navegador */
+            margin: 0; /* Elimina el margen por defecto */
+        }
+
+        h1 {
+            color: #4CAF50; /* Color verde oscuro para el título */
+            margin-bottom: 20px; /* Espacio debajo del título */
+        }
+
+        .search-container {
+            background: white; /* Fondo blanco para el contenedor de búsqueda */
+            padding: 20px; /* Espaciado interno del contenedor */
+            border-radius: 8px; /* Bordes redondeados para el contenedor */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+            width: 300px; /* Ancho fijo del contenedor */
+            text-align: left; /* Alinea el texto a la izquierda */
+        }
+
+        label {
+            margin-bottom: 5px; /* Espacio debajo de la etiqueta */
+            color: #333; /* Color del texto de las etiquetas */
+        }
+
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: calc(100% - 20px); /* Ancho completo del campo, menos el padding */
+            padding: 10px; /* Espaciado interno del campo */
+            margin-bottom: 15px; /* Espacio debajo de cada campo */
+            border: 1px solid #4CAF50; /* Borde verde oscuro */
+            border-radius: 4px; /* Bordes redondeados */
+            transition: border-color 0.3s; /* Transición suave al cambiar el borde */
+        }
+
+        input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+            border-color: #388E3C; /* Cambiar el color del borde al hacer foco */
+        }
+
+        input[type="submit"] {
+            width: 100%; /* Ancho completo del botón */
+            padding: 10px; /* Espaciado interno del botón */
+            border: none; /* Sin borde */
+            border-radius: 4px; /* Bordes redondeados */
+            cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+            background-color: #4CAF50; /* Color de fondo del botón */
+            color: white; /* Color del texto del botón */
+            transition: background-color 0.3s; /* Transición suave al cambiar el fondo */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #388E3C; /* Color de fondo al pasar el mouse sobre el botón */
+        }
+
+        /* Estilo para el botón de regresar */
+        .regresar {
+            margin-top: 20px; /* Espacio arriba del botón */
+            padding: 10px 20px; /* Espaciado interno */
+            border: none; /* Sin borde */
+            border-radius: 4px; /* Bordes redondeados */
+            cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+            background-color: #4CAF50; /* Color de fondo del botón */
+            color: white; /* Color del texto del botón */
+            transition: background-color 0.3s; /* Transición suave al cambiar el fondo */
+        }
+
+        .regresar:hover {
+            background-color: #388E3C; /* Color de fondo al pasar el mouse sobre el botón */
+        }
+    </style>
+</head>
+<body>
+    <h1>Búsqueda de Productos</h1> <!-- Título principal de la página de búsqueda -->
+
+    <div class="search-container"> <!-- Contenedor para la búsqueda -->
+        <form action="buscar_productos.php" method="POST"> <!-- Formulario que envía datos al archivo buscar_productos.php -->
+            <label for="id">ID del Producto:</label> <!-- Etiqueta para el campo de ID -->
+            <input type="text" id="id" name="id" placeholder="ID (opcional)"> <!-- Campo para ID del producto -->
+
+            <label for="nombre">Nombre del Producto:</label> <!-- Etiqueta para el campo de nombre -->
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre del producto (opcional)"> <!-- Campo para el nombre del producto -->
+
+            <label for="descripcion">Descripción del Producto:</label> <!-- Etiqueta para el campo de descripción -->
+            <input type="text" id="descripcion" name="descripcion" placeholder="Descripción (opcional)"> <!-- Campo para la descripción del producto -->
+
+            <label for="cantidad_exist">Cantidad en Existencias:</label> <!-- Etiqueta para la cantidad de existencias -->
+            <input type="text" id="cantidad_exist" name="cantidad_exist" placeholder="Cantidad en existencias (opcional)"> <!-- Campo para la cantidad de existencias -->
+
+            <input type="submit" value="Buscar"> <!-- Botón para enviar el formulario -->
+        </form>
+    </div>
+
+    <button class="regresar" onclick="window.location.href='menu_buscar.html'">Regresar</button> <!-- Botón para regresar al menú -->
+</body>
+</html>

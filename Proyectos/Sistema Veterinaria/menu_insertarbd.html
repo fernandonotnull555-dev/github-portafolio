@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> <!-- Establece la codificación de caracteres a UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la página sea responsiva -->
+    <title>Seleccionar Tabla</title> <!-- Título de la pestaña del navegador -->
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Tipo de fuente para el cuerpo */
+            background-color: #e6f9e6; /* Color de fondo verde claro */
+            display: flex; /* Utiliza Flexbox para organizar el contenido */
+            flex-direction: column; /* Organiza los elementos en columna */
+            align-items: center; /* Centra horizontalmente el contenido */
+            height: 100vh; /* Altura total de la ventana del navegador */
+            margin: 0; /* Elimina el margen por defecto */
+        }
+
+        header {
+            background-color: rgba(76, 175, 80, 0.8); /* Fondo verde con opacidad */
+            padding: 15px 20px; /* Espaciado interno */
+            text-align: center; /* Centrar texto */
+            color: white; /* Texto en blanco */
+            width: 100%; /* Ancho completo del encabezado */
+        }
+
+        nav {
+            display: flex; /* Usar flexbox para el menú */
+            justify-content: center; /* Centrar horizontalmente */
+            background-color: rgba(51, 51, 51, 0.8); /* Fondo oscuro con opacidad para el menú */
+            padding: 10px; /* Espaciado interno */
+            width: 100%; /* Ancho completo del menú */
+        }
+
+        nav a {
+            color: white; /* Texto en blanco */
+            padding: 15px 20px; /* Espaciado interno */
+            text-decoration: none; /* Quitar subrayado de los enlaces */
+            text-align: center; /* Centrar texto dentro del enlace */
+            transition: background-color 0.3s; /* Transición suave de color */
+        }
+
+        nav a:hover {
+            background-color: #021bfa; /* Cambiar color al pasar el mouse */
+        }
+
+        h1 {
+            color: #080808; /* Color oscuro para el título */
+            margin: 20px 0; /* Espacio arriba y abajo del título */
+        }
+
+        .menu-container {
+            background: white; /* Fondo blanco para el contenedor del menú */
+            padding: 20px; /* Espaciado interno del contenedor */
+            border-radius: 8px; /* Bordes redondeados para el contenedor */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+            width: 300px; /* Ancho fijo del contenedor */
+            text-align: center; /* Alinea el texto al centro */
+        }
+
+        .menu-container button {
+            padding: 10px 20px; /* Espaciado interno del botón */
+            border: none; /* Sin borde */
+            border-radius: 4px; /* Bordes redondeados */
+            cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+            background-color: #4CAF50; /* Color de fondo del botón */
+            color: white; /* Color del texto del botón */
+            margin: 5px 0; /* Margen superior e inferior */
+            transition: background-color 0.3s; /* Transición suave al cambiar el fondo */
+            width: 100%; /* Ancho completo del botón */
+        }
+
+        .menu-container button:hover {
+            background-color: #388E3C; /* Color de fondo al pasar el mouse sobre el botón */
+        }
+
+        .regresar {
+            margin-top: 20px; /* Espacio arriba del botón de regresar */
+        }
+    </style>
+</head>
+<body>
+    <!-- Menú principal -->
+    <header>
+        <h1>Bienvenido/a a nuestra Veterinaria</h1> <!-- Título principal -->
+    </header>
+
+    <nav>
+        <a href="insertar_usuario.html">Crear Usuario</a>
+        <a href="menu_insertarbd.html">Insertar Registros</a>
+        <a href="modificar_bd.html">Modificar en la Base de Datos</a>
+        <a href="menu_buscar.html">Buscar Usuarios en la Base de Datos</a>
+        <a href="menu_eliminar.html">Eliminar Registros de la Base de Datos</a>
+        <a href="menu_reportes.html">Generar Reportes</a>
+        <a href="logout.php">Cerrar Sesión</a>
+    </nav>
+
+    <!-- Contenido de la página -->
+    <h1>Insertar en la Base de Datos, seleccione la tabla</h1> <!-- Título principal de la página -->
+
+    <div class="menu-container"> <!-- Contenedor para el menú -->
+        <button onclick="window.location.href='insertar_cita.html'">Citas</button> <!-- Enlace a insertar citas -->
+        <button onclick="window.location.href='insertar_paciente.html'">Pacientes</button> <!-- Enlace a insertar pacientes -->
+        <button onclick="window.location.href='insertar_propietario.html'">Propietarios</button> <!-- Enlace a insertar propietarios -->
+        <button onclick="window.location.href='insertar_producto.html'">Productos</button> <!-- Enlace a insertar productos -->
+
+        <button class="regresar" onclick="window.location.href='menu.html'">Regresar al menú</button> <!-- Botón para regresar al menú -->
+    </div>
+</body>
+</html>

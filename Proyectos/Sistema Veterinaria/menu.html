@@ -1,0 +1,86 @@
+<?php
+// Iniciar la sesión
+session_start();
+
+// Verificar si el usuario ha iniciado sesión, basado en la existencia de 'usuario_id'
+if (!isset($_SESSION['usuario_id'])) {
+    // Si no hay sesión activa, redirigir al formulario de login
+    header('Location: login.html');
+    exit();  // Asegurar que el código no siga ejecutándose
+}
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Página responsiva -->
+    <title>Menú - Veterinaria</title> <!-- Título de la página -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('ruta/a/tu/imagen.jpg'); /* Ruta a tu imagen */
+            background-size: cover; /* Hacer que la imagen cubra todo el fondo */
+            background-position: center; /* Centrar la imagen */
+            margin: 0; /* Quitar márgenes por defecto */
+        }
+
+        header {
+            background-color: rgba(92, 175, 76, 0.8); /* Fondo verde con opacidad */
+            padding: 15px 20px; /* Espaciado interno */
+            text-align: center; /* Centrar texto */
+            color: white; /* Texto en blanco */
+        }
+
+        nav {
+            display: flex; /* Usar flexbox para el menú */
+            justify-content: center; /* Centrar horizontalmente */
+            background-color: rgba(51, 51, 51, 0.8); /* Fondo oscuro con opacidad para el menú */
+            padding: 10px; /* Espaciado interno */
+        }
+
+        nav a {
+            color: white; /* Texto en blanco */
+            padding: 15px 20px; /* Espaciado interno */
+            text-decoration: none; /* Quitar subrayado de los enlaces */
+            text-align: center; /* Centrar texto dentro del enlace */
+            transition: background-color 0.3s; /* Transición suave de color */
+        }
+
+        nav a:hover {
+            background-color: #021bfa; /* Cambiar color al pasar el mouse */
+        }
+
+        h1 {
+            color: #000000; /* Color del título */
+            text-align: center; /* Centrar título */
+            margin: 20px 0; /* Margen del título */
+        }
+
+        .mascota-imagen {
+            display: block; /* Mostrar como bloque */
+            margin: 20px auto; /* Centrar imagen */
+            max-width: 80%; /* Ancho máximo de la imagen */
+            height: auto; /* Altura automática para mantener proporciones */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido/a a nuestra Veterinaria</h1> <!-- Título principal -->
+    </header>
+
+    <nav>
+        <a href="insertar_usuario.html">Crear Usuario</a>
+        <a href="menu_insertarbd.html">Insertar Registros</a>
+        <a href="modificar_bd.html">Modificar en la Base de Datos</a>
+        <a href="menu_buscar.html">Buscar Usuarios en la Base de Datos</a>
+        <a href="menu_eliminar.html">Eliminar Registros de la Base de Datos</a>
+        <a href="menu_reportes.html">Generar Reportes</a>
+        <a href="logout.php">Cerrar Sesión</a>
+    </nav>
+
+    <!-- Imagen de mascotas debajo de los botones -->
+    <img src="https://w0.peakpx.com/wallpaper/463/467/HD-wallpaper-pets-pet-kittten-caine-cat-pisici-animal-dog-puppy.jpg" alt="Imagen de mascotas" class="mascota-imagen">
+</body>
+</html>

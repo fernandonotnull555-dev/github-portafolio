@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> <!-- Establece la codificación de caracteres a UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la página sea responsiva -->
+    <title>Insertar Cita</title> <!-- Título de la pestaña del navegador -->
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Tipo de fuente para el cuerpo */
+            background-color: #e6f9e6; /* Color de fondo verde claro */
+            display: flex; /* Utiliza Flexbox para organizar el contenido */
+            flex-direction: column; /* Organiza los elementos en columna */
+            justify-content: center; /* Centra verticalmente el contenido */
+            align-items: center; /* Centra horizontalmente el contenido */
+            height: 100vh; /* Altura total de la ventana del navegador */
+            margin: 0; /* Elimina el margen por defecto */
+        }
+
+        h1 {
+            color: #4CAF50; /* Color verde oscuro para el título */
+        }
+
+        .form-container {
+            background: white; /* Fondo blanco para el contenedor del formulario */
+            padding: 20px; /* Espaciado interno del contenedor */
+            border-radius: 8px; /* Bordes redondeados para el contenedor */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+            width: 300px; /* Ancho fijo del contenedor */
+        }
+
+        label {
+            margin-bottom: 5px; /* Espacio debajo de la etiqueta */
+            color: #333; /* Color del texto de las etiquetas */
+        }
+
+        input[type="text"], input[type="datetime-local"], input[type="number"] {
+            width: calc(100% - 20px); /* Ancho completo del campo, menos el padding */
+            padding: 10px; /* Espaciado interno del campo */
+            margin-bottom: 15px; /* Espacio debajo de cada campo */
+            border: 1px solid #4CAF50; /* Borde verde oscuro */
+            border-radius: 4px; /* Bordes redondeados */
+        }
+
+        input[type="submit"] {
+            width: 100%; /* Ancho completo del botón */
+            padding: 10px; /* Espaciado interno del botón */
+            border: none; /* Sin borde */
+            border-radius: 4px; /* Bordes redondeados */
+            cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+            background-color: #4CAF50; /* Color de fondo del botón */
+            color: white; /* Color del texto del botón */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #388E3C; /* Color de fondo al pasar el mouse sobre el botón */
+        }
+
+        .regresar {
+            margin-top: 15px; /* Espacio arriba del botón */
+            padding: 10px 20px; /* Espaciado interno */
+            border: none; /* Sin borde */
+            border-radius: 4px; /* Bordes redondeados */
+            cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+            background-color: #4CAF50; /* Color de fondo del botón */
+            color: white; /* Color del texto del botón */
+        }
+
+        .regresar:hover {
+            background-color: #388E3C; /* Color de fondo al pasar el mouse sobre el botón */
+        }
+    </style>
+</head>
+<body>
+    <h1>Insertar Cita</h1>
+    <div class="form-container">
+        <form action="insertar_cita.php" method="POST"> <!-- Formulario que envía datos al archivo insertar_cita.php -->
+            <label for="id_paciente">ID del Paciente:</label>
+            <input type="number" id="id_paciente" name="id_paciente" required>
+
+            <label for="fecha_cita">Fecha y Hora de la Cita:</label>
+            <input type="datetime-local" id="fecha_cita" name="fecha_cita" required>
+
+            <label for="motivo">Motivo:</label>
+            <input type="text" id="motivo" name="motivo" required>
+
+            <input type="submit" value="Insertar Cita">
+            <button class="regresar" onclick="window.location.href='menu_insertarbd.html'">Regresar</button> <!-- Botón para regresar al menú -->
+        </form>
+    </div>
+</body>
+</html>

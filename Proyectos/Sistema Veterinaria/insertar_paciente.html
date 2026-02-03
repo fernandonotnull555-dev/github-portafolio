@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertar Paciente</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f9e6;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        label {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"], input[type="number"], select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #4CAF50;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #388E3C;
+        }
+
+        .regresar {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .regresar:hover {
+            background-color: #388E3C;
+        }
+    </style>
+</head>
+<body>
+    <h1>Insertar Paciente</h1>
+    <div class="form-container">
+        <form action="insertar_paciente.php" method="POST">
+            <label for="id_prop">ID del Propietario:</label>
+            <input type="number" id="id_prop" name="id_prop" required>
+
+            <label for="nombre">Nombre del Paciente:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="especie">Especie:</label>
+            <input type="text" id="especie" name="especie" required>
+
+            <label for="sexo">Sexo:</label>
+            <select id="sexo" name="sexo" required>
+                <option value="Macho">Macho</option>
+                <option value="Hembra">Hembra</option>
+            </select>
+
+            <label for="peso">Peso:</label>
+            <input type="text" id="peso" name="peso" required>
+
+            <label for="edad">Edad:</label>
+            <input type="text" id="edad" name="edad" required>
+
+
+            <input type="submit" value="Insertar Paciente">
+            <button class="regresar" onclick="window.location.href='menu_insertarbd.html'">Regresar</button>
+        </form>
+    </div>
+</body>
+</html>

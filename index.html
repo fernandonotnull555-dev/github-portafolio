@@ -86,35 +86,7 @@
 
 						<div class="row">
 
-							<!-- Proyecto 1: AgroGeo -->
-
-							<article class="col-6 col-12-xsmall work-item">
-
-								<a href="https://github.com/fernandonotnull555/github-portfolio/tree/main/Proyectos/AGRO_LOCALIZACION" target="_blank" class="image fit thumb">
-
-									<img src="images/fulls/AgroGeo.png" alt="AgroGeo - Sistema de Geolocalización de Agromercados" />
-
-								</a>
-
-								<h3>AgroGeo - Plataforma de Geolocalización Agrícola</h3>
-
-								<p>Sistema de información geográfica para gestión de agromercados con base de datos PostgreSQL/PostGIS. Implementación de índices espaciales, triggers de auditoría y consultas geoespaciales optimizadas para análisis de cobertura territorial.</p>
-
-								<div class="actions">
-
-									<a href="https://fernandonotnull555-dev.github.io/Agro_geolocalizacion/" target="_blank" class="button small">
-
-										<i class="fab fa-github"></i> Ver código
-
-									</a>
-
-								</div>
-
-							</article>
-
-							
-
-							<!-- Proyecto 2: ERP Veterinaria -->
+							<!-- Proyecto 1: ERP Veterinaria -->
 
 							<article class="col-6 col-12-xsmall work-item">
 
@@ -131,6 +103,34 @@
 								<div class="actions">
 
 									<a href="https://fernandonotnull555-dev.github.io/SistemaVet/" target="_blank" class="button small">
+
+										<i class="fab fa-github"></i> Ver código
+
+									</a>
+
+								</div>
+
+							</article>
+
+							
+
+							<!-- Proyecto 2: AgroGeo -->
+
+							<article class="col-6 col-12-xsmall work-item">
+
+								<a href="https://github.com/fernandonotnull555/github-portfolio/tree/main/Proyectos/AGRO_LOCALIZACION" target="_blank" class="image fit thumb">
+
+									<img src="images/fulls/AgroGeo.png" alt="AgroGeo - Sistema de Geolocalización de Agromercados" />
+
+								</a>
+
+								<h3>AgroGeo - Plataforma de Geolocalización Agrícola</h3>
+
+								<p>Plataforma de gestión veterinaria con arquitectura de base de datos MariaDB. Diseño de 12+ tablas normalizadas en 3FN, implementación de procedimientos almacenados para reportes financieros y sistema CRUD con validaciones de integridad referencial.</p>
+
+								<div class="actions">
+
+									<a href="https://fernandonotnull555-dev.github.io/Agro_geolocalizacion/" target="_blank" class="button small">
 
 										<i class="fab fa-github"></i> Ver código
 
@@ -288,7 +288,7 @@
 
 							<div class="col-8 col-12-small">
 
-								<form method="post" action="#">
+								<form method="post" action="#" id="contact-form">
 
 									<div class="row gtr-uniform gtr-50">
 
@@ -393,6 +393,22 @@
 			<script src="assets/js/util.js"></script>
 
 			<script src="assets/js/main.js"></script>
+
+
+
+		<script>
+
+			$('#contact-form').on('submit', function(e) {
+
+				e.preventDefault();
+
+				alert('¡Mensaje enviado exitosamente! Gracias por contactarme. Te responderé pronto.');
+
+				this.reset();
+
+			});
+
+		</script>
 
 
 

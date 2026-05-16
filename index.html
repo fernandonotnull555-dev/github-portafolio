@@ -1,8 +1,9 @@
+
 <!DOCTYPE HTML>
 
 
 
-<html>
+<html lang="es">
 
 	<head>
 
@@ -12,9 +13,16 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" />
+		<meta name="description" content="Portafolio profesional de Fernando Murillo — Ingeniería en Bases de Datos, SQL, arquitectura de datos y proyectos destacados." />
+		<meta property="og:title" content="Fernando Murillo — Ingeniería en Bases de Datos" />
+		<meta property="og:description" content="Portafolio profesional: proyectos, experiencia y contacto." />
+		<meta property="og:type" content="website" />
 
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Syne:wght@600;700&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="assets/css/main.min.css" />
 
 	</head>
 
@@ -62,14 +70,6 @@
 
 						<p>Ingeniero en formación especializado en <strong>diseño, optimización y gestión de bases de datos y tecnologias informaticas</strong>. Con experiencia en desarrollo de soluciones en diversas tecnologias informaticas, modelado entidad-relación, normalizaciónes, consultas optimizadas. Apasionado por transformar datos crudos en información estratégica mediante arquitecturas escalables y eficientes. En constante actualización tecnológica para implementar las mejores prácticas. Con una actitud de aprendizaje constante y disposición para enfrentar nuevos desafíos.</p>
 
-						<ul class="actions">
-
-							<li><a href="#two" class="button">Proyectos</a></li>
-
-						</ul>
-
-					</section>
-
 
 
 				<!-- Two -->
@@ -90,9 +90,10 @@
 
 							<article class="col-6 col-12-xsmall work-item">
 
+
 								<a href="https://github.com/fernandonotnull555/github-portfolio/tree/main/Proyectos/ERP_Veterinaria_la_mascota" target="_blank" class="image fit thumb">
 
-									<img src="images/fulls/ERP_veterinaria.png" alt="VetSys - Sistema ERP Veterinario" />
+									<img src="images/fulls/ERP_veterinaria.png" alt="VetSys - Sistema ERP Veterinario" loading="lazy" />
 
 								</a>
 
@@ -118,121 +119,113 @@
 
 							<article class="col-6 col-12-xsmall work-item">
 
+
 								<a href="https://github.com/fernandonotnull555/github-portfolio/tree/main/Proyectos/AGRO_LOCALIZACION" target="_blank" class="image fit thumb">
 
-									<img src="images/fulls/AgroGeo.png" alt="AgroGeo - Sistema de Geolocalización de Agromercados" />
+									<img src="images/fulls/AgroGeo.png" alt="AgroGeo - Sistema de Geolocalización de Agromercados" loading="lazy" />
 
 								</a>
 
 								<h3>AgroGeo - Plataforma de Geolocalización Agrícola</h3>
 
-								<p>Plataforma de gestión veterinaria con arquitectura de base de datos MariaDB. Diseño de 12+ tablas normalizadas en 3FN, implementación de procedimientos almacenados para reportes financieros y sistema CRUD con validaciones de integridad referencial.</p>
+							<p>Sistema de geolocalización de agromercados con mapas interactivos y búsqueda de puntos de interés. Implementé integración de coordenadas GPS, filtros de productos y visualización responsive para facilitar el acceso a información agrícola local.</p>
 
-								<div class="actions">
+							<div class="actions">
 
-									<a href="https://fernandonotnull555-dev.github.io/Agro_geolocalizacion/" target="_blank" class="button small">
+								<a href="https://fernandonotnull555-dev.github.io/Agro_geolocalizacion/" target="_blank" class="button small">
 
-										<i class="fab fa-github"></i> Ver código
+									<i class="fab fa-github"></i> Ver código
 
-									</a>
+								</a>
 
-								</div>
+							</div>
 
-							</article>
+						</article>
 
-							
+						<!-- Proyecto 3: App Móvil Aseguradora -->
 
-							<!-- Proyecto 3: App Móvil Aseguradora -->
+						<article class="col-6 col-12-xsmall work-item">
 
+
+							<a href="https://github.com/fernandonotnull555/github-portfolio/tree/main/Proyectos/Aseguradora_Salvadorea_Android" target="_blank" class="image fit thumb">
+
+								<img src="images/fulls/App_Movil_Aseguradora.png" alt="SegurosApp - Aplicación Móvil de Gestión de Pólizas" loading="lazy" />
+
+							</a>
+
+							<h3>SegurosApp - Gestión Móvil de Pólizas de Seguro</h3>
+
+							<p>Aplicación móvil con backend en SQLite para cálculo automatizado de primas de seguros. Implementación de algoritmos matemáticos para cálculo de riesgos, transacciones ACID para garantizar consistencia y sincronización con servidor PostgreSQL.</p>
+
+							<div class="actions">
+
+								<a href="https://github.com/fernandonotnull555-dev/APP-Aseguradora-demo" target="_blank" class="button small">
+
+									<i class="fab fa-github"></i> Ver código
+
+								</a>
+
+							</div>
+
+						</article>
+
+						<!-- Proyecto 4: Optimización SQL aquí agregare mas proyectos a futuro dejare como ejemplo esto comentado -->
+						<!-- <article class="col-6 col-12-xsmall work-item">
+
+							<a href="https://github.com/fernandonotnull555/github-portfolio/tree/main/Proyectos/ETL%20Pentaho" target="_blank" class="image fit thumb">
+
+								<img src="images/thumbs/proyecto4.jpg" alt="QueryBoost - Optimización Avanzada de Consultas SQL" />
+
+							</a>
+
+							<h3>QueryBoost - Optimización Avanzada de Consultas SQL</h3>
+
+							<p>Análisis de rendimiento con EXPLAIN ANALYZE y reescritura de queries complejas. Implementación de índices compuestos, particionamiento de tablas y materialized views, logrando reducir tiempos de ejecución hasta un 75% en cargas de trabajo intensivas.</p>
+
+							<div class="actions">
+
+								<a href="https://github.com/fernandonotnull555/github-portfolio/tree/main/Proyectos/ETL%20Pentaho" target="_blank" class="button small">
+
+									<i class="fab fa-github"></i> Ver código
+
+								</a>
+
+							</div>
+
+						</article> -->
+
+                            <!-- Proyecto 5: MongoDB -->
+                            <!-- <article class="col-6 col-12-xsmall work-item">
+
+                                    <a href="https://github.com/fernandonotnull555/github-portfolio/tree/main/Proyectos/PROYECTO(AZULIZA)" target="_blank" class="image fit thumb">
+
+                                            <img src="images/thumbs/proyecto5.jpg" alt="BlogDB - Base de Datos NoSQL con MongoDB" />
+
+                                    </a>
+
+                                    <h3>BlogDB - Sistema de Gestión de Contenido NoSQL</h3>
+
+                                    <p>Implementación de base de datos documental MongoDB para plataforma de blogging. Diseño de esquema flexible con embedded documents, pipelines de agregación para análisis de métricas y sharding para escalabilidad horizontal en entornos de alta concurrencia.</p>
+
+                                    <div class="actions">
+
+                                            <a href="https://github.com/fernandonotnull555/github-portfolio/tree/main/Proyectos/PROYECTO(AZULIZA)" target="_blank" class="button small">
+
+                                                    <i class="fab fa-github"></i> Ver código
+
+                                            </a>
+
+                                    </div>
+
+                            </article> -->
+
+                            <!-- Proyecto 6: Perfil Profesional -->
 							<article class="col-6 col-12-xsmall work-item">
 
-								<a href="https://github.com/fernandonotnull555/github-portfolio/tree/main/Proyectos/Aseguradora_Salvadorea_Android" target="_blank" class="image fit thumb">
-
-									<img src="images/fulls/App_Movil_Aseguradora.png" alt="SegurosApp - Aplicación Móvil de Gestión de Pólizas" />
-
-								</a>
-
-								<h3>SegurosApp - Gestión Móvil de Pólizas de Seguro</h3>
-
-								<p>Aplicación móvil con backend en SQLite para cálculo automatizado de primas de seguros. Implementación de algoritmos matemáticos para cálculo de riesgos, transacciones ACID para garantizar consistencia y sincronización con servidor PostgreSQL.</p>
-
-								<div class="actions">
-
-									<a href="https://github.com/fernandonotnull555/github-portfolio/tree/main/Proyectos/Aseguradora_Salvadorea_Android" target="_blank" class="button small">
-
-										<i class="fab fa-github"></i> Ver código
-
-									</a>
-
-								</div>
-
-							</article>
-
-							
-
-							<!-- Proyecto 4: Optimización SQL aqui agregare mas proyectos a futuro dejare como ejemplo esto conmentado -->
-
-							<!-- <article class="col-6 col-12-xsmall work-item">
-
-								<a href="https://github.com/fernandonotnull555/github-portfolio/tree/main/Proyectos/ETL%20Pentaho" target="_blank" class="image fit thumb">
-
-									<img src="images/thumbs/proyecto4.jpg" alt="QueryBoost - Optimización Avanzada de Consultas SQL" />
-
-								</a>
-
-								<h3>QueryBoost - Optimización Avanzada de Consultas</h3>
-
-								<p>Análisis de rendimiento con EXPLAIN ANALYZE y reescritura de queries complejas. Implementación de índices compuestos, particionamiento de tablas y materialized views, logrando reducir tiempos de ejecución hasta un 75% en cargas de trabajo intensivas.</p>
-
-								<div class="actions">
-
-									<a href="https://github.com/fernandonotnull555/github-portfolio/tree/main/Proyectos/ETL%20Pentaho" target="_blank" class="button small">
-
-										<i class="fab fa-github"></i> Ver código
-
-									</a>
-
-								</div>
-
-							</article> -->
-
-							
-
-							<!-- Proyecto 5: MongoDB -->
-
-							<!-- <article class="col-6 col-12-xsmall work-item">
-
-								<a href="https://github.com/fernandonotnull555/github-portfolio/tree/main/Proyectos/PROYECTO(AZULIZA)" target="_blank" class="image fit thumb">
-
-									<img src="images/thumbs/proyecto5.jpg" alt="BlogDB - Base de Datos NoSQL con MongoDB" />
-
-								</a>
-
-								<h3>BlogDB - Sistema de Gestión de Contenido NoSQL</h3>
-
-								<p>Implementación de base de datos documental MongoDB para plataforma de blogging. Diseño de esquema flexible con embedded documents, pipelines de agregación para análisis de métricas y sharding para escalabilidad horizontal en entornos de alta concurrencia.</p>
-
-								<div class="actions">
-
-									<a href="https://github.com/fernandonotnull555/github-portfolio/tree/main/Proyectos/PROYECTO(AZULIZA)" target="_blank" class="button small">
-
-										<i class="fab fa-github"></i> Ver código
-
-									</a>
-
-								</div>
-
-							</article>
-
-							
-
-							Proyecto 6: Perfil Profesional -->
-
-							<article class="col-6 col-12-xsmall work-item">
 
 								<a href="#three" class="image fit thumb">
 
-									<img src="images/fulls/plus.png" alt="Perfil Profesional - Fernando Murillo" />
+									<img src="images/fulls/plus.png" alt="Perfil Profesional - Fernando Murillo" loading="lazy" />
 
 								</a>
 
@@ -248,7 +241,7 @@
 
 								<div class="actions">
 
-									<a href="#three" class="button small">
+									<a href="mailto:fernandonotnull555@gmail.com" class="button">
 
 										<i class="fas fa-envelope"></i> Contactar
 
@@ -303,6 +296,7 @@
 
 
 
+
 		<!-- Scripts -->
 
 			<script src="assets/js/jquery.min.js"></script>
@@ -312,17 +306,8 @@
 			<script src="assets/js/browser.min.js"></script>
 
 			<script src="assets/js/breakpoints.min.js"></script>
-				e.preventDefault();
 
-				alert('¡Mensaje enviado exitosamente! Gracias por contactarme. Te responderé pronto.');
-
-				this.reset();
-
-			});
-
-		</script>
-
-
+			<script src="assets/js/bundle.min.js"></script>
 
 	</body>
 
